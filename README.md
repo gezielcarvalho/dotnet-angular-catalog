@@ -42,3 +42,9 @@ To get started, you will need to clone the repository to your local machine. Onc
 ### Running the Application
 
 Before running the application, you need to setup the startup projects in Visual Studio. To do this, right-click on the solution in the Solution Explorer and select **Set Startup Projects...**. In the dialog that appears, select **Multiple startup projects** and set the **Action** for both the **Backend** and **Frontend** projects to **Start**. Click **OK** to save the changes.
+
+## References
+
+Based on the following:
+
+- https://github.com/gezielcarvalho/AngularDotNetSolution
