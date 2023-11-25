@@ -49,3 +49,5 @@ Based on the following:
 
 - https://github.com/gezielcarvalho/AngularDotNetSolution
 - https://www.figma.com/file/1n0aifcfatWv9ozp16XCrq/DSCatalog-Bootcamp?type=design&node-id=0%3A1&mode=design&t=89PHify6c8CnXbYN-1
+- https://www.generatedata.com/
+- https://codewithmukesh.com/blog/pagination-in-aspnet-core-webapi/

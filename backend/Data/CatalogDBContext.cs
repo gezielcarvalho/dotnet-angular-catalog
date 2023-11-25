@@ -87,6 +87,76 @@ namespace Backend.Data
                     UpdatedAt = DateTime.Now,
                     Id = 3,
                     Name = "Music"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 4,
+                    Name = "Games"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 5,
+                    Name = "Electronics"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 6,
+                    Name = "Computers"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 7,
+                    Name = "Home"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 8,
+                    Name = "Garden"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 9,
+                    Name = "Tools"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 10,
+                    Name = "Grocery"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 11,
+                    Name = "Health"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 12,
+                    Name = "Beauty"
+                },
+                new Category
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 13,
+                    Name = "Toys"
                 }
             );
         }
