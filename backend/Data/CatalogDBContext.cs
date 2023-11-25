@@ -1,6 +1,8 @@
 ﻿using Backend.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Options;
+using System.Threading;
 
 namespace Backend.Data
 {
@@ -12,6 +14,56 @@ namespace Backend.Data
         }
 
         public DbSet<Category> Categories { get; set; } = null!;
+
+        public override int SaveChanges()
+        {
+            var entries = ChangeTracker.Entries().Where(e => e.Entity is Category && (
+                           e.State == EntityState.Added
+                                          || e.State == EntityState.Modified));
+            foreach (var entry in entries)
+            {
+                if (entry != null && entry!.Entity is Category)
+                {
+                    // if entity is added, set created date
+                    if (entry.State == EntityState.Added)
+                    {
+                        ((Category)entry.Entity).CreatedAt = DateTime.Now;
+                    }
+                    else if (entry.State == EntityState.Modified)
+                    {
+                        ((Category)entry.Entity).UpdatedAt = DateTime.Now;
+                        // keep created date unchanged
+                        entry.Property("CreatedAt").IsModified = false;
+                    }
+                }
+            }
+            return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        {
+            var entries = ChangeTracker.Entries().Where(e => e.Entity is Category && (
+                             e.State == EntityState.Added || e.State == EntityState.Modified)); ;
+            // set updated date for modified entries
+            foreach (var entry in entries)
+            {
+                if (entry != null && entry!.Entity is Category)
+                {
+                    // if entity is added, set created date
+                    if (entry.State == EntityState.Added)
+                    {
+                        ((Category)entry.Entity).CreatedAt = DateTime.Now;
+                    }
+                    else if (entry.State == EntityState.Modified)
+                    {
+                        ((Category)entry.Entity).UpdatedAt = DateTime.Now;
+                        // keep created date unchanged
+                        entry.Property("CreatedAt").IsModified = false;
+                    }
+                }
+            }
+            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(
