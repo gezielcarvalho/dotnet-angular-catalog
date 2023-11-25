@@ -48,3 +48,4 @@ Before running the application, you need to setup the startup projects in Visual
 Based on the following:
 
 - https://github.com/gezielcarvalho/AngularDotNetSolution
+- https://www.figma.com/file/1n0aifcfatWv9ozp16XCrq/DSCatalog-Bootcamp?type=design&node-id=0%3A1&mode=design&t=89PHify6c8CnXbYN-1

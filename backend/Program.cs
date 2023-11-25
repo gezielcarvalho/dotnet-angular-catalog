@@ -15,6 +15,7 @@ builder.Services.AddDbContext<CatalogDBContext>(options =>
     //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
