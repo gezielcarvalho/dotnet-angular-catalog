@@ -10,7 +10,10 @@ namespace Backend.Data
     {
         public CatalogDBContext(DbContextOptions<CatalogDBContext> options) : base(options)
         {
-            Database.EnsureCreated();
+            if (Database.IsInMemory())
+            {
+                Database.EnsureCreated();
+            }
         }
 
         public DbSet<Category> Categories { get; set; } = null!;
@@ -160,5 +163,6 @@ namespace Backend.Data
                 }
             );
         }
+
     }
 }

@@ -8,6 +8,15 @@ namespace Backend.Models
     [Table("Category")]
     public class Category : ISerializable, IComparable<Category>
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long Id { get; set; }
+        public string Name { get; set; } = null!;
+        public ICollection<Product> Products { get; set; } = null!;
+
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+
         public Category() { }
         public Category(string name)
         {
@@ -20,13 +29,6 @@ namespace Backend.Models
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
         }
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public DateTime? CreatedAt { get; set; }
-        public DateTime? UpdatedAt { get; set; }
 
         public int CompareTo(Category? other)
         {
@@ -50,7 +52,7 @@ namespace Backend.Models
         {
             int prime = 31;
             int result = 1;
-            result = prime * result + Id;
+            result = (int)(prime * result + Id);
             return result;
         }
 
