@@ -163,6 +163,7 @@ namespace Backend.Data
                 }
             );
         }
+        public DbSet<Backend.Models.Product>? Product { get; set; }
 
     }
 }
