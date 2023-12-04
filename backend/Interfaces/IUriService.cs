@@ -1,6 +1,6 @@
 ﻿using Backend.Filters;
 
-namespace Backend.Services
+namespace Backend.Interfaces
 {
     public interface IUriService
     {
