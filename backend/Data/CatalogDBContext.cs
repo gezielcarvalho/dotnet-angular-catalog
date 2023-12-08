@@ -17,6 +17,9 @@ namespace Backend.Data
         }
 
         public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<Product> Products { get; set; } = null!;
+        public DbSet<Tag>? Tag { get; set; } = null!;
+        public DbSet<Post>? Post { get; set; } = null!;
 
         public override int SaveChanges()
         {

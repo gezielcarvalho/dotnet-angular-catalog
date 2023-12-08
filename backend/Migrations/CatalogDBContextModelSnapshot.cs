@@ -48,94 +48,115 @@ namespace Backend.Migrations
                         new
                         {
                             Id = 1L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5833),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7905),
                             Name = "Books",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5861)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7941)
                         },
                         new
                         {
                             Id = 2L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5863),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7945),
                             Name = "Movies",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5864)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7947)
                         },
                         new
                         {
                             Id = 3L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5865),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7950),
                             Name = "Music",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5866)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7951)
                         },
                         new
                         {
                             Id = 4L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5868),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7953),
                             Name = "Games",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5869)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7955)
                         },
                         new
                         {
                             Id = 5L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5870),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7956),
                             Name = "Electronics",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5871)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7958)
                         },
                         new
                         {
                             Id = 6L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5872),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7959),
                             Name = "Computers",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5873)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7961)
                         },
                         new
                         {
                             Id = 7L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5874),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7962),
                             Name = "Home",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5875)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7964)
                         },
                         new
                         {
                             Id = 8L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5876),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7965),
                             Name = "Garden",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5877)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7967)
                         },
                         new
                         {
                             Id = 9L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5879),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7968),
                             Name = "Tools",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5879)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7970)
                         },
                         new
                         {
                             Id = 10L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5902),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7972),
                             Name = "Grocery",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5904)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7973)
                         },
                         new
                         {
                             Id = 11L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5905),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7975),
                             Name = "Health",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5907)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7976)
                         },
                         new
                         {
                             Id = 12L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5908),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7978),
                             Name = "Beauty",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5909)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7979)
                         },
                         new
                         {
                             Id = 13L,
-                            CreatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5910),
+                            CreatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7981),
                             Name = "Toys",
-                            UpdatedAt = new DateTime(2023, 11, 29, 18, 54, 56, 918, DateTimeKind.Local).AddTicks(5911)
+                            UpdatedAt = new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7982)
                         });
+                });
+
+            modelBuilder.Entity("Backend.Models.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Post");
                 });
 
             modelBuilder.Entity("Backend.Models.Product", b =>
@@ -177,6 +198,38 @@ namespace Backend.Migrations
                     b.ToTable("Product");
                 });
 
+            modelBuilder.Entity("Backend.Models.Tag", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("TagName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tag");
+                });
+
+            modelBuilder.Entity("PostTag", b =>
+                {
+                    b.Property<int>("PostsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PostsId", "TagsId");
+
+                    b.HasIndex("TagsId");
+
+                    b.ToTable("PostTag");
+                });
+
             modelBuilder.Entity("Backend.Models.Product", b =>
                 {
                     b.HasOne("Backend.Models.Category", "Category")
@@ -186,6 +239,21 @@ namespace Backend.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("PostTag", b =>
+                {
+                    b.HasOne("Backend.Models.Post", null)
+                        .WithMany()
+                        .HasForeignKey("PostsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Backend.Models.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Backend.Models.Category", b =>
