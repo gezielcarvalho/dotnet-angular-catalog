@@ -31,14 +31,10 @@ namespace Backend.Controllers
             {
                 return NotFound();
             }
-            // Use JsonSerializerOptions with ReferenceHandler.Preserve
-            //var options = new JsonSerializerOptions
-            //{
-            //    ReferenceHandler = ReferenceHandler.IgnoreCycles,
-            //    // Other options as needed
-            //};
-            // return tags and posts in a many to many relation
-            return await _context.Tag.Include(t => t.Posts).ToListAsync();
+            return await _context.Tag
+                            .Include(t => t.PostTags)
+                            .ThenInclude(p => p.Post)
+                            .ToListAsync();
         }
 
         // GET: api/Tags/5
@@ -49,7 +45,10 @@ namespace Backend.Controllers
             {
                 return NotFound();
             }
-            var tag = await _context.Tag.FindAsync(id);
+            var tag = await _context.Tag
+                                .Include(t => t.PostTags)
+                                .ThenInclude(p => p.Post)
+                                .FirstOrDefaultAsync(t => t.Id == id);
 
             if (tag == null)
             {

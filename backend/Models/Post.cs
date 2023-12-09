@@ -12,6 +12,7 @@ namespace Backend.Models
         public int Id { get; set; }
         public string Title { get; set; } = null!;
         public string Content { get; set; } = null!;
-        public List<Tag> Tags { get; } = new();
+        public List<PostTag> PostTags { get; set; } = new();
+
     }
 }

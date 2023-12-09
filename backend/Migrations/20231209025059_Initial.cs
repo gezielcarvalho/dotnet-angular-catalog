@@ -84,21 +84,23 @@ namespace Backend.Migrations
                 name: "PostTag",
                 columns: table => new
                 {
-                    PostsId = table.Column<int>(type: "int", nullable: false),
-                    TagsId = table.Column<int>(type: "int", nullable: false)
+                    PostId = table.Column<int>(type: "int", nullable: false),
+                    TagId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PostTag", x => new { x.PostsId, x.TagsId });
+                    table.PrimaryKey("PK_PostTag", x => new { x.PostId, x.TagId });
                     table.ForeignKey(
-                        name: "FK_PostTag_Post_PostsId",
-                        column: x => x.PostsId,
+                        name: "FK_PostTag_Post_PostId",
+                        column: x => x.PostId,
                         principalTable: "Post",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PostTag_Tag_TagsId",
-                        column: x => x.TagsId,
+                        name: "FK_PostTag_Tag_TagId",
+                        column: x => x.TagId,
                         principalTable: "Tag",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -109,25 +111,25 @@ namespace Backend.Migrations
                 columns: new[] { "Id", "CreatedAt", "Name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7905), "Books", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7941) },
-                    { 2L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7945), "Movies", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7947) },
-                    { 3L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7950), "Music", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7951) },
-                    { 4L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7953), "Games", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7955) },
-                    { 5L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7956), "Electronics", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7958) },
-                    { 6L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7959), "Computers", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7961) },
-                    { 7L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7962), "Home", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7964) },
-                    { 8L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7965), "Garden", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7967) },
-                    { 9L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7968), "Tools", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7970) },
-                    { 10L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7972), "Grocery", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7973) },
-                    { 11L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7975), "Health", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7976) },
-                    { 12L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7978), "Beauty", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7979) },
-                    { 13L, new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7981), "Toys", new DateTime(2023, 12, 8, 12, 41, 10, 200, DateTimeKind.Local).AddTicks(7982) }
+                    { 1L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2641), "Books", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2671) },
+                    { 2L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2673), "Movies", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2674) },
+                    { 3L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2676), "Music", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2677) },
+                    { 4L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2678), "Games", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2679) },
+                    { 5L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2680), "Electronics", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2681) },
+                    { 6L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2683), "Computers", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2684) },
+                    { 7L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2685), "Home", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2686) },
+                    { 8L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2687), "Garden", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2688) },
+                    { 9L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2689), "Tools", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2690) },
+                    { 10L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2691), "Grocery", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2692) },
+                    { 11L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2693), "Health", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2694) },
+                    { 12L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2695), "Beauty", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2696) },
+                    { 13L, new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2697), "Toys", new DateTime(2023, 12, 8, 21, 50, 59, 140, DateTimeKind.Local).AddTicks(2699) }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PostTag_TagsId",
+                name: "IX_PostTag_TagId",
                 table: "PostTag",
-                column: "TagsId");
+                column: "TagId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Product_CategoryId",

@@ -4,12 +4,20 @@ using System.Text.Json.Serialization;
 
 namespace Backend.Models
 {
-    public class Tag
+    public class PostTag
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string TagName { get; set; } = string.Empty;
-        public List<PostTag> PostTags { get; set; }
+
+        [ForeignKey("Post")]
+        public int PostId { get; set; }
+
+        public Post? Post { get; set; }
+
+        [ForeignKey("Tag")]
+        public int TagId { get; set; }
+
+        public Tag? Tag { get; set; }
     }
 }

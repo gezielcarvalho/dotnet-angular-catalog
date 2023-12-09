@@ -20,6 +20,7 @@ namespace Backend.Data
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Tag>? Tag { get; set; } = null!;
         public DbSet<Post>? Post { get; set; } = null!;
+        public DbSet<PostTag>? PostTag { get; set; } = null!;
 
         public override int SaveChanges()
         {
@@ -72,6 +73,19 @@ namespace Backend.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<PostTag>()
+            .HasKey(pt => new { pt.PostId, pt.TagId });
+
+            modelBuilder.Entity<PostTag>()
+                .HasOne(pt => pt.Post)
+                .WithMany(p => p.PostTags)
+                .HasForeignKey(pt => pt.PostId);
+
+            modelBuilder.Entity<PostTag>()
+                .HasOne(pt => pt.Tag)
+                .WithMany(t => t.PostTags)
+                .HasForeignKey(pt => pt.TagId);
+
             modelBuilder.Entity<Category>().HasData(
                 new Category
                 {

@@ -1,5 +1,6 @@
 ﻿using Backend.Data;
 using Backend.Models;
+using Backend.Models.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,35 +15,35 @@ namespace Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostsController : ControllerBase
+    public class PostTagsController : ControllerBase
     {
         private readonly CatalogDBContext _context;
 
-        public PostsController(CatalogDBContext context)
+        public PostTagsController(CatalogDBContext context)
         {
             _context = context;
         }
 
         // GET: api/Posts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Post>>> GetPost()
+        public async Task<ActionResult<IEnumerable<PostTag>>> GetPostTag()
         {
             if (_context.Post == null)
             {
                 return NotFound();
             }
-            return await _context.Post.Include(p => p.PostTags).ThenInclude(t => t.Tag).ToListAsync();
+            return await _context.PostTag!.Include(p => p.Post).Include(t => t.Tag).ToListAsync();
         }
 
         // GET: api/Posts/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> GetPost(int id)
+        public ActionResult<PostTag> GetPostTag(int id)
         {
-            if (_context.Post == null)
-            {
-                return NotFound();
-            }
-            var post = await _context.Post.Include(p => p.PostTags).FirstOrDefaultAsync();
+
+            var post = _context.PostTag!
+                .Include(p => p.Post)
+                .Include(t => t.Tag)
+                .FirstOrDefault(pt => pt.PostId == id);
 
             if (post == null)
             {
@@ -55,14 +56,14 @@ namespace Backend.Controllers
         // PUT: api/Posts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPost(int id, Post post)
+        public async Task<IActionResult> PutPostTag(int id, PostTagCreateDTO postTagDTO)
         {
-            if (id != post.Id)
+            if (id != postTagDTO.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(post).State = EntityState.Modified;
+            _context.Entry(postTagDTO).State = EntityState.Modified;
 
             try
             {
@@ -70,7 +71,7 @@ namespace Backend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PostExists(id))
+                if (!PostTagExists(id))
                 {
                     return NotFound();
                 }
@@ -86,41 +87,53 @@ namespace Backend.Controllers
         // POST: api/Posts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Post>> PostPost(Post post)
+        public async Task<ActionResult<PostTag>> PostTagPost(PostTagCreateDTO postTagDTO)
         {
-            if (_context.Post == null)
+            if (_context.PostTag == null)
             {
-                return Problem("Entity set 'CatalogDBContext.Post'  is null.");
+                return Problem("Entity set 'CatalogDBContext.PostTag' is null.");
             }
-            _context.Post.Add(post);
+
+            // Map PostTagCreateDTO to PostTag
+            var postTag = new PostTag
+            {
+                PostId = postTagDTO.PostId,
+                TagId = postTagDTO.TagId
+                // You can set other properties if needed
+            };
+
+            _context.PostTag.Add(postTag);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPost", new { id = post.Id }, post);
+            // Return the created PostTag
+            return CreatedAtAction("GetPostTag", new { id = postTag.Id }, postTag);
         }
+
 
         // DELETE: api/Posts/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePost(int id)
+        public async Task<IActionResult> DeletePostTag(int id)
         {
-            if (_context.Post == null)
+            if (_context.PostTag == null)
             {
                 return NotFound();
             }
-            var post = await _context.Post.FindAsync(id);
-            if (post == null)
+            var postTag = await _context.PostTag.FindAsync(id);
+            if (postTag == null)
             {
                 return NotFound();
             }
 
-            _context.Post.Remove(post);
+            _context.PostTag.Remove(postTag);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool PostExists(int id)
+
+        private bool PostTagExists(int id)
         {
-            return (_context.Post?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.PostTag?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
