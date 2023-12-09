@@ -16,8 +16,8 @@ namespace Backend.Data
             }
         }
 
-        public DbSet<Category> Categories { get; set; } = null!;
-        public DbSet<Product> Products { get; set; } = null!;
+        public DbSet<Category>? Categories { get; set; } = null!;
+        public DbSet<Product>? Products { get; set; } = null!;
         public DbSet<Tag>? Tag { get; set; } = null!;
         public DbSet<Post>? Post { get; set; } = null!;
         public DbSet<PostTag>? PostTag { get; set; } = null!;
@@ -85,6 +85,74 @@ namespace Backend.Data
                 .HasOne(pt => pt.Tag)
                 .WithMany(t => t.PostTags)
                 .HasForeignKey(pt => pt.TagId);
+
+            modelBuilder.Entity<Post>().HasData(
+                new Post
+                {
+                    Id = 1,
+                    Title = "Post 1",
+                    Content = "Content 1"
+                },
+                new Post
+                {
+                    Id = 2,
+                    Title = "Post 2",
+                    Content = "Content 2"
+                },
+                new Post
+                {
+                    Id = 3,
+                    Title = "Post 3",
+                    Content = "Content 3"
+                },
+                new Post
+                {
+                    Id = 4,
+                    Title = "Post 4",
+                    Content = "Content 4"
+                }
+                );
+
+            modelBuilder.Entity<Tag>().HasData(
+                new Tag
+                {
+                    Id = 1,
+                    TagName = "Tag 1"
+                },
+                new Tag
+                {
+                    Id = 2,
+                    TagName = "Tag 2"
+                },
+                new Tag
+                {
+                    Id = 3,
+                    TagName = "Tag 3"
+                }
+                );
+
+            modelBuilder.Entity<PostTag>().HasData(
+                new PostTag
+                {
+                    PostId = 1,
+                    TagId = 1
+                },
+                new PostTag
+                {
+                    PostId = 1,
+                    TagId = 2
+                },
+                new PostTag
+                {
+                    PostId = 2,
+                    TagId = 2
+                },
+                new PostTag
+                {
+                    PostId = 2,
+                    TagId = 3
+                }
+                );
 
             modelBuilder.Entity<Category>().HasData(
                 new Category
@@ -179,8 +247,92 @@ namespace Backend.Data
                     Name = "Toys"
                 }
             );
+
+            modelBuilder.Entity<Product>().HasData(
+                new Product
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 1,
+                    Name = "Product 1",
+                    Description = "Description 1",
+                    Price = 1.99,
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 2,
+                    Name = "Product 2",
+                    Description = "Description 2",
+                    Price = 2.99,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 3,
+                    Name = "Product 3",
+                    Description = "Description 3",
+                    Price = 3.99,
+                    CategoryId = 3
+                },
+                new Product
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 4,
+                    Name = "Product 4",
+                    Description = "Description 4",
+                    Price = 4.99,
+                    CategoryId = 4
+                },
+                new Product
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 5,
+                    Name = "Product 5",
+                    Description = "Description 5",
+                    Price = 5.99,
+                    CategoryId = 5
+                },
+                new Product
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 6,
+                    Name = "Product 6",
+                    Description = "Description 6",
+                    Price = 6.99,
+                    CategoryId = 6
+                },
+                new Product
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 7,
+                    Name = "Product 7",
+                    Description = "Description 7",
+                    Price = 7.99,
+                    CategoryId = 7
+                },
+                new Product
+                {
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    Id = 8,
+                    Name = "Product 8",
+                    Description = "Description 8",
+                    Price = 8.99,
+                    CategoryId = 8
+                }
+            );
+
         }
-        public DbSet<Backend.Models.Product>? Product { get; set; }
+
 
     }
 }
