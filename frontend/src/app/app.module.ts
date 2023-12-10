@@ -11,6 +11,7 @@ import { SidebarComponent } from './components/header/sidebar/sidebar.component'
 import { LogoComponent } from './components/logo/logo.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { ProductsComponent } from './components/products/products.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { ProductsComponent } from './components/products/products.component';
     AppComponent, ProductsComponent, HeaderComponent, NavigationComponent, SidebarComponent, LogoComponent, ProductDetailsComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, AppRoutingModule, RouterModule, 
+    BrowserModule, HttpClientModule, AppRoutingModule, RouterModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
