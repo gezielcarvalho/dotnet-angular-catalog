@@ -20,7 +20,7 @@
   }
 
   .sidebar-container {
-    @apply fixed top-16 left-0 h-screen w-16 m-0 flex flex-col items-center bg-primary text-secondary shadow-lg dark:bg-gray-900 dark:text-white;
+    @apply fixed top-16 left-0 h-screen w-16 m-0 flex flex-col items-center bg-red-500 text-blue-500 shadow-lg dark:bg-gray-900 dark:text-white;
   }
 
   .navigation-bar {
