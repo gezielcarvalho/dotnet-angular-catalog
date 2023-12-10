@@ -5,16 +5,17 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductsComponent } from './products/products.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavigationComponent } from './components/header/navigation/navigation.component';
 import { SidebarComponent } from './components/header/sidebar/sidebar.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { ProductsComponent } from './components/products/products.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, ProductsComponent, HeaderComponent, NavigationComponent, SidebarComponent, LogoComponent
+    AppComponent, ProductsComponent, HeaderComponent, NavigationComponent, SidebarComponent, LogoComponent, ProductDetailsComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, RouterModule, 

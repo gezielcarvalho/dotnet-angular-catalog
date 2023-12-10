@@ -7,4 +7,10 @@
     <!-- Folder where production build objects will be placed -->
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\InsightLabs\</PublishAssetsDirectory>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\components\admin\" />
+    <Folder Include="src\app\components\shared\" />
+    <Folder Include="src\app\components\public\" />
+    <Folder Include="src\app\models\" />
+  </ItemGroup>
 </Project>

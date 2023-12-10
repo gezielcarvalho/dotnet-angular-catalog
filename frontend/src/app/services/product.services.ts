@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { Product } from '../models/Product';
 
-const mock_products = [
+const mock_products: Product[] = [
   {
     id: 1, name: 'Adidas Stan Smith', price: 90.0,
     category: 'Shoes', description: ''
@@ -25,10 +26,10 @@ const mock_products = [
 })
 export class ProductService {
 
-  getProducts(): Observable<any> {
+  getProducts(): Observable<Product[]> {
     return of(mock_products);
   }
-  getProduct(id: number): Observable<any> {
+  getProduct(id: number): Observable<Product> {
     return of(mock_products[id - 1]);
   }
   constructor() { }
