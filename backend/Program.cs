@@ -16,7 +16,8 @@ builder.Services.AddDbContext<CatalogDBContext>(options =>
 {
     // connect to in-memory database
     //options.UseInMemoryDatabase("Catalog");
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DockerConnection"));
 
 });
 

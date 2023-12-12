@@ -12,6 +12,8 @@ dotnet ef dbcontext scaffold "Connection String" Microsoft.EntityFrameworkCore.S
 {
   "ConnectionStrings": {
 	"DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=Northwind;Trusted_Connection=True;MultipleActiveResultSets=true"
+	"DockerConnection": "Data Source=127.0.0.1,1434;Initial Catalog=zeh;User ID=sa;Password=A!234567a;TrustServerCertificate=True;"
+}
   }
 }
 ````
