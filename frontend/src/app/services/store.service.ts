@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs/internal/BehaviorSubject";
 import { Product } from "../models/Product";
 import { Subject } from "rxjs/internal/Subject";
+import { Filter } from "../models/Filter";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,18 @@ export class StoreService {
   public readonly _pageSizeSubject = new Subject<number>();
   public pageSizeChanges$ = this._pageSizeSubject.asObservable();
 
+  private readonly _filter = new BehaviorSubject<Filter>({
+    name: "",
+    categories: []
+  });
+
+  readonly filter$ = this._filter.asObservable();
+  get filter(): Filter {
+    return this._filter.getValue();
+  }
+  set filter(val: Filter) {
+    this._filter.next(val);
+  }
   private readonly _count = new BehaviorSubject<number>(1);
   readonly count$ = this._count.asObservable();
 

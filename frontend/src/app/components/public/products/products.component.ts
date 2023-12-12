@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
   }
   getProducts(): void {
     this.productService.getProducts(this.storeService.page,
-      this.storeService.pageSize)
+      this.storeService.pageSize, { categories: [], name: "" })
       .subscribe(itemPayload => {
         this.storeService.products = itemPayload.products;
         this.storeService.count = itemPayload.count;
@@ -37,5 +37,4 @@ export class ProductsComponent implements OnInit {
   onPageSizeChange(): void {
     this.storeService._pageSizeSubject.next(this.storeService.pageSize);
   }
-
 }
