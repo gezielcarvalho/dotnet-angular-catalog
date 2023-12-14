@@ -7,6 +7,10 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+ConfigureServices(builder.Services);
+
+
+
 // Add services to the container.
 
 builder.Services.AddControllers().AddJsonOptions(x =>
@@ -49,3 +53,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+void ConfigureServices(IServiceCollection services)
+{
+    services.AddTransient<IUsersService, UsersService>();
+}

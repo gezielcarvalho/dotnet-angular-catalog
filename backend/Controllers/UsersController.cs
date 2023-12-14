@@ -1,3 +1,4 @@
+using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
@@ -7,17 +8,17 @@ namespace Backend.Controllers
     public class UsersController : ControllerBase
     {
 
-        private readonly ILogger<UsersController> _logger;
+        private readonly IUsersService _service;
 
-        public UsersController(ILogger<UsersController> logger)
+        public UsersController(IUsersService service)
         {
-            _logger = logger;
+            _service = service;
         }
 
         [HttpGet(Name = "GetUsers")]
         public async Task<ActionResult> GetUsers()
         {
-            return null;
+            return Ok(await _service.GetUsers());
         }
     }
 }
