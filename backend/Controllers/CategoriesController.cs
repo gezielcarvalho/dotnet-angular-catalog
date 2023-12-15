@@ -47,6 +47,20 @@ namespace Backend.Controllers
             return Ok(data);
         }
 
+        // GET: api/Categories/GetOneCategoryName/13 
+        [HttpGet("GetOneCategoryName/{id}")]
+        public async Task<IActionResult> GetOneCategoryName(int id)
+        {
+            var parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@CategoryId", id)
+            };
+
+            var data = await SPHelper.GetOneOrExecAsync(_context, "spGetCategoryName", parameters);
+
+            return Ok(data);
+        }
+
         // GET: api/Categories
         [HttpGet]
         public async Task<IActionResult> GetCategories([FromQuery] PaginationFilter filter)
