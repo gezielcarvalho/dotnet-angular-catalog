@@ -12,7 +12,7 @@ namespace Backend.Helpers
         public static async Task<IList<IList<ExpandoObject>>> GetAllAsync(
             DbContext context,
             string storedProcedureName,
-            IEnumerable<SqlParameter> parameters)
+            IEnumerable<SqlParameter>? parameters = null)
         {
             IList<IList<ExpandoObject>> data = new List<IList<ExpandoObject>>();
 
@@ -58,7 +58,7 @@ namespace Backend.Helpers
         public static async Task<ExpandoObject> GetOneOrExecAsync(
         DbContext context,
         string storedProcedureName,
-        IEnumerable<SqlParameter> parameters)
+        IEnumerable<SqlParameter>? parameters = null)
         {
             ExpandoObject result = null!;
 
@@ -97,7 +97,7 @@ namespace Backend.Helpers
         public static IList<IList<ExpandoObject>> GetAll(
         DbContext context,
         string storedProcedureName,
-        IEnumerable<SqlParameter> parameters)
+        IEnumerable<SqlParameter>? parameters = null)
         {
             IList<IList<ExpandoObject>> data = new List<IList<ExpandoObject>>();
 
@@ -143,7 +143,7 @@ namespace Backend.Helpers
         public static ExpandoObject GetOneOrExec(
             DbContext context,
             string storedProcedureName,
-            IEnumerable<SqlParameter> parameters)
+            IEnumerable<SqlParameter>? parameters = null)
         {
             ExpandoObject result = null!;
 

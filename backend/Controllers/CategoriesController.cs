@@ -39,12 +39,10 @@ namespace Backend.Controllers
         {
             var parameters = new List<SqlParameter>
             {
-                new SqlParameter("@CategoryId", id)
+                new("@CategoryId", id)
             };
 
-            var data = await SPHelper.GetAllAsync(_context, "spGetCategoryDatasets", parameters);
-
-            return Ok(data);
+            return Ok(await SPHelper.GetAllAsync(_context, "spGetCategoryDatasets", parameters));
         }
 
         // GET: api/Categories/GetOneCategoryName/13 
@@ -53,12 +51,17 @@ namespace Backend.Controllers
         {
             var parameters = new List<SqlParameter>
             {
-                new SqlParameter("@CategoryId", id)
+                new("@CategoryId", id)
             };
 
-            var data = await SPHelper.GetOneOrExecAsync(_context, "spGetCategoryName", parameters);
+            return Ok(await SPHelper.GetOneOrExecAsync(_context, "spGetCategoryName", parameters));
+        }
 
-            return Ok(data);
+        // GET: api/Categories/CountCategories
+        [HttpGet("CountCategories")]
+        public async Task<IActionResult> CountCategories()
+        {
+            return Ok(await SPHelper.GetOneOrExecAsync(_context, "spCountCategories"));
         }
 
         // GET: api/Categories

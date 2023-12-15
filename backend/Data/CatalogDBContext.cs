@@ -75,7 +75,6 @@ namespace Backend.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ItemsByCategoryDTO>().HasNoKey();
 
             modelBuilder.Entity<PostTag>()
             .HasKey(pt => new { pt.PostId, pt.TagId });
