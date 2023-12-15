@@ -3,12 +3,18 @@ using Backend.Filters;
 using Backend.Helpers;
 using Backend.Interfaces;
 using Backend.Models;
+using Backend.Models.DTO;
 using Backend.Wrappers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using NuGet.Packaging;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -27,17 +33,31 @@ namespace Backend.Controllers
             _uriService = uriService;
         }
 
+        // GET: api/Categories/GetCategoryDatasets/13 
+        [HttpGet("GetCategoryDatasets/{id}")]
+        public async Task<IActionResult> GetCategoryDatasets(int id)
+        {
+            var parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@CategoryId", id)
+            };
+
+            var data = await SPHelper.GetAllAsync(_context, "spGetCategoryDatasets", parameters);
+
+            return Ok(data);
+        }
+
         // GET: api/Categories
         [HttpGet]
         public async Task<IActionResult> GetCategories([FromQuery] PaginationFilter filter)
         {
             var route = Request.Path.Value;
             var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
-            var pagedData = await _context.Categories
+            var pagedData = await _context.Categories!
                 .Skip((validFilter.PageNumber - 1) * validFilter.PageSize)
                 .Take(validFilter.PageSize)
                 .ToListAsync();
-            var totalRecords = await _context.Categories.CountAsync();
+            var totalRecords = await _context.Categories!.CountAsync();
             var pagedReponse = PaginationHelper.CreatePagedReponse<Category>(pagedData, validFilter, totalRecords, _uriService, route!);
             return Ok(pagedReponse);
         }
@@ -90,7 +110,7 @@ namespace Backend.Controllers
             return NoContent();
         }
 
-        // GET: api/Categories/5
+        // POST: api/Categories/PostCategory
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
