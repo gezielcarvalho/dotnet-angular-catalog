@@ -1,3 +1,4 @@
+using backend.tests.Fixtures;
 using Backend.Controllers;
 using Backend.Models;
 using Backend.Services;
@@ -14,15 +15,7 @@ public class TestUsersController
     {
         // Arrange
         var mockUserService = new Mock<IUsersService>();
-        mockUserService.Setup(service => service.GetUsers()).ReturnsAsync(new List<User>()
-            {
-                new() {
-                        Id = 1,
-                        Name = "John",
-                        Email = "john@doe.com"
-                }
-            }
-        );
+        mockUserService.Setup(service => service.GetUsers()).ReturnsAsync(UsersFixture.GetTestUsers());
         var controller = new UsersController(mockUserService.Object);
 
         // Act
@@ -38,7 +31,6 @@ public class TestUsersController
     {
         // Arrange
         var mockUserService = new Mock<IUsersService>();
-        mockUserService.Setup(service => service.GetUsers()).ReturnsAsync(new List<User>());
         var controller = new UsersController(mockUserService.Object);
 
         // Act
@@ -53,14 +45,7 @@ public class TestUsersController
     {
         // Arrange
         var mockUserService = new Mock<IUsersService>();
-        mockUserService.Setup(service => service.GetUsers()).ReturnsAsync(new List<User>()
-            {
-                new() {
-                        Id = 1,
-                        Name = "John",
-                        Email = "john@doe.com"
-                }
-            });
+        mockUserService.Setup(service => service.GetUsers()).ReturnsAsync(UsersFixture.GetTestUsers());
         var controller = new UsersController(mockUserService.Object);
 
         // Act
@@ -80,7 +65,6 @@ public class TestUsersController
 
         // Act
         var result = await controller.GetUser();
-
 
         // Assert
         result.Should().BeOfType<NotFoundResult>();
