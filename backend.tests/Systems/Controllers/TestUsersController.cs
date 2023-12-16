@@ -14,13 +14,22 @@ public class TestUsersController
     {
         // Arrange
         var mockUserService = new Mock<IUsersService>();
+        mockUserService.Setup(service => service.GetUsers()).ReturnsAsync(new List<User>()
+            {
+                new() {
+                        Id = 1,
+                        Name = "John",
+                        Email = "john@doe.com"
+                }
+            }
+        );
         var controller = new UsersController(mockUserService.Object);
 
         // Act
-        var result = await controller.GetUsers();
+        var result = (OkObjectResult)await controller.GetUsers();
 
         // Assert
-        Assert.IsType<OkObjectResult>(result);
+        result.StatusCode.Should().Be(200);
 
     }
 
@@ -44,7 +53,14 @@ public class TestUsersController
     {
         // Arrange
         var mockUserService = new Mock<IUsersService>();
-        mockUserService.Setup(service => service.GetUsers()).ReturnsAsync(new List<User>());
+        mockUserService.Setup(service => service.GetUsers()).ReturnsAsync(new List<User>()
+            {
+                new() {
+                        Id = 1,
+                        Name = "John",
+                        Email = "john@doe.com"
+                }
+            });
         var controller = new UsersController(mockUserService.Object);
 
         // Act
@@ -52,6 +68,24 @@ public class TestUsersController
 
         // Assert
         result.Should().BeOfType<OkObjectResult>().Which.Value.Should().BeOfType<List<User>>();
+    }
+
+    [Fact]
+    public async Task Get_OnNoUserFound_Returns404()
+    {
+        // Arrange
+        var mockUserService = new Mock<IUsersService>();
+        mockUserService.Setup(service => service.GetUser()).ReturnsAsync((User)null!);
+        var controller = new UsersController(mockUserService.Object);
+
+        // Act
+        var result = await controller.GetUser();
+
+
+        // Assert
+        result.Should().BeOfType<NotFoundResult>();
+        var notFoundResult = (NotFoundResult)result;
+        notFoundResult.StatusCode.Should().Be(404);
     }
 
 }

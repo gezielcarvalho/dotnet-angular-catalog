@@ -11,5 +11,13 @@ namespace Backend.Services
             await Task.Delay(1000);
             return users;
         }
+
+        public async Task<User> GetUser()
+        {
+            var user = new User();
+            // simulate an async call
+            await Task.Delay(1000);
+            return user;
+        }
     }
 }
