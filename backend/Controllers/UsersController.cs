@@ -1,5 +1,6 @@
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace Backend.Controllers
 {
@@ -18,8 +19,9 @@ namespace Backend.Controllers
         [HttpGet(Name = "GetUser")]
         public async Task<ActionResult> GetUser()
         {
-            var user = await _service.GetUser();
-            if (user == null)
+            var tempUsrId = 1;
+            var (user, statusCode) = await _service.GetUser(tempUsrId);
+            if (statusCode == HttpStatusCode.NotFound || statusCode == 0)
             {
                 return NotFound();
             }

@@ -28,5 +28,15 @@ namespace backend.tests.Fixtures
                 }
             };
         }
+
+        internal static User GetTestUser(int userId)
+        {
+            return new User()
+            {
+                Id = userId,
+                Name = "John: " + userId,
+                Email = "john" + userId + "@doe.com"
+            };
+        }
     }
 }

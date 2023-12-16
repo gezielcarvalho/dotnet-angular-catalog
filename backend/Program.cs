@@ -53,7 +53,9 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-void ConfigureServices(IServiceCollection services)
+
+static void ConfigureServices(IServiceCollection services)
 {
     services.AddTransient<IUsersService, UsersService>();
+    services.AddHttpClient<IUsersService, UsersService>();
 }

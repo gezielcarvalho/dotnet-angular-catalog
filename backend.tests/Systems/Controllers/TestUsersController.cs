@@ -5,6 +5,7 @@ using Backend.Services;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using System.Net;
 
 namespace backend.tests.Systems.Controllers;
 
@@ -59,8 +60,13 @@ public class TestUsersController
     public async Task Get_OnNoUserFound_Returns404()
     {
         // Arrange
+        var userId = 99;
         var mockUserService = new Mock<IUsersService>();
-        mockUserService.Setup(service => service.GetUser()).ReturnsAsync((User)null!);
+
+        // Setup the GetUser method to use the actual service implementation
+        mockUserService.Setup(service => service.GetUser(userId))
+                       .ReturnsAsync((null, HttpStatusCode.NotFound));
+
         var controller = new UsersController(mockUserService.Object);
 
         // Act
@@ -71,5 +77,6 @@ public class TestUsersController
         var notFoundResult = (NotFoundResult)result;
         notFoundResult.StatusCode.Should().Be(404);
     }
+
 
 }
