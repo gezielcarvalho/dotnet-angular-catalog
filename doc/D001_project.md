@@ -35,6 +35,32 @@ We will organize our sample project - the SShop - several iterations. Each itera
    3. Perform User Acceptance Testing
    4. Deploy the solution
 
+### Identifying Use Cases
+
+Document what the users need to do with the system, a case or situation where the system is used.
+
+| Use Case                         | Description                                                     |
+| -------------------------------- | --------------------------------------------------------------- |
+| Look up supplier                 | Using supplier name, find supplier information and contacts     |
+| Enter/update supplierinformation | Enter (new) or update (existing) supplier information           |
+| Look up contact                  | Using contact name, find contact information                    |
+| Enter/update contact information | Enter (new) or update (existing) contact information            |
+| Look up product information      | Using description or supplier name, look up product information |
+| Enter/update product information | Enter (new) or update (existing) product information            |
+| Upload product image             | Upload images of the merchandise product                        |
+
+### Identifying Domain Classes
+
+Domain classes are the categories of objects identified, much like a table in a database represents the category of the records it contains
+
+| Domain Class | Attributes                                            |
+| ------------ | ----------------------------------------------------- |
+| Supplier     | supplierName, address, city, state, zip, phone, email |
+| Contact      | contactName, phone, email                             |
+| Product      | description, price, image                             |
+| Category     | categoryName, description                             |
+| Image        | imageName, imageDescription, imageFile, imageCaption  |
+
 ## Iteration 2 - The First Step in the Development of the Project
 
 1. To be defined.
