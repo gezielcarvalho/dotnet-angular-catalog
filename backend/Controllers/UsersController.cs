@@ -4,8 +4,8 @@ using System.Net;
 
 namespace Backend.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class UsersController : ControllerBase
     {
 
@@ -16,20 +16,8 @@ namespace Backend.Controllers
             _service = service;
         }
 
-        [HttpGet(Name = "GetUser")]
+        [HttpGet]
         public async Task<ActionResult> GetUser()
-        {
-            var tempUsrId = 1;
-            var (user, statusCode) = await _service.GetUser(tempUsrId);
-            if (statusCode == HttpStatusCode.NotFound || statusCode == 0)
-            {
-                return NotFound();
-            }
-            return Ok(user);
-        }
-
-        [HttpGet(Name = "GetUsers")]
-        public async Task<ActionResult> GetUsers()
         {
             var users = await _service.GetUsers();
             if (users == null)
@@ -37,6 +25,17 @@ namespace Backend.Controllers
                 return NotFound();
             }
             return Ok(users);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetUser(int id)
+        {
+            var (user, statusCode) = await _service.GetUser(id);
+            if (statusCode == HttpStatusCode.NotFound || statusCode == 0)
+            {
+                return NotFound();
+            }
+            return Ok(user);
         }
     }
 }
