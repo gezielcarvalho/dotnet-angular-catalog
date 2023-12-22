@@ -19,8 +19,9 @@ We will organize our sample project - the SShop - several iterations. Each itera
 
 1. Discover and understand the details of all aspects of the problem.
    1. Identify and define use cases
-   2. Identify and define information requirements
-   3. Develop workflows and descriptions for the use cases
+   2. Identifying Domain Classes
+   3. Identify and define information requirements
+   4. Develop workflows and descriptions for the use cases
 2. Design the components of the solution to the problem
    1. Design input screens, output screens, and reports
    2. Design and build the database (attributes, keys and indexes)
@@ -60,6 +61,10 @@ Domain classes are the categories of objects identified, much like a table in a 
 | Product      | description, price, image                             |
 | Category     | categoryName, description                             |
 | Image        | imageName, imageDescription, imageFile, imageCaption  |
+
+### Identifying Information Requirements
+
+Detail the use cases and domain classes that are scheduled to be implemented in the first iteration.
 
 ## Iteration 2 - The First Step in the Development of the Project
 

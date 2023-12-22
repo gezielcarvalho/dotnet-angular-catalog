@@ -51,3 +51,8 @@ Based on the following:
 - https://www.figma.com/file/1n0aifcfatWv9ozp16XCrq/DSCatalog-Bootcamp?type=design&node-id=0%3A1&mode=design&t=89PHify6c8CnXbYN-1
 - https://www.generatedata.com/
 - https://codewithmukesh.com/blog/pagination-in-aspnet-core-webapi/
+
+Future:
+
+- https://www.youtube.com/watch?v=5ZLmcDi30YI
+- https://www.youtube.com/watch?v=PR7xz5vQKGg
