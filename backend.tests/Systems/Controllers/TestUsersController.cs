@@ -20,7 +20,7 @@ public class TestUsersController
         var controller = new UsersController(mockUserService.Object);
 
         // Act
-        var result = (OkObjectResult)await controller.GetUsers();
+        var result = (OkObjectResult)await controller.GetUser();
 
         // Assert
         result.StatusCode.Should().Be(200);
@@ -35,7 +35,7 @@ public class TestUsersController
         var controller = new UsersController(mockUserService.Object);
 
         // Act
-        var result = await controller.GetUsers();
+        var result = await controller.GetUser();
 
         // Assert
         mockUserService.Verify(service => service.GetUsers(), Times.Once);
@@ -50,7 +50,7 @@ public class TestUsersController
         var controller = new UsersController(mockUserService.Object);
 
         // Act
-        var result = await controller.GetUsers();
+        var result = await controller.GetUser();
 
         // Assert
         result.Should().BeOfType<OkObjectResult>().Which.Value.Should().BeOfType<List<User>>();
