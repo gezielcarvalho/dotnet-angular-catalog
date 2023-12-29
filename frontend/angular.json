@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "InsightLabs": {
+    "frontend": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
+        },
+        "@schematics/angular:pipe": {
+          "standalone": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/insight-labs",
+            "outputPath": "dist/frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,21 +70,18 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "InsightLabs:build:production"
+              "browserTarget": "frontend:build:production"
             },
             "development": {
-              "browserTarget": "InsightLabs:build:development"
+              "browserTarget": "frontend:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "proxyConfig": "src/proxy.conf.js"
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "InsightLabs:build"
+            "browserTarget": "frontend:build"
           }
         },
         "test": {
@@ -92,14 +99,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "karmaConfig": "karma.conf.js"
+            "scripts": []
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "6cb812a1-5147-49de-8c07-8c6f9904740d"
+    "analytics": "ba1782ba-dec0-4c3c-a14c-349d3117a223"
   }
 }

@@ -56,3 +56,8 @@ Future:
 
 - https://www.youtube.com/watch?v=5ZLmcDi30YI
 - https://www.youtube.com/watch?v=PR7xz5vQKGg
+
+### Standalone
+
+https://blogs.halodoc.io/angular-standalone-components-unleashed-exploring-the-magic-of-a-world-without-ngmodule/
+https://dev.to/this-is-angular/angular-revisited-standalone-angular-applications-the-replacement-for-ngmodules-238m

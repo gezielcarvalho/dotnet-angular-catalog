@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'app-products',
-  templateUrl: './products.component.html',
+  selector: 'app-home',
+  templateUrl: './home.component.html',
 })
-export class ProductsComponent implements OnInit {
+export class HomeComponent implements OnInit {
   ngOnInit(): void {
     //throw new Error("Method not implemented.");
   }

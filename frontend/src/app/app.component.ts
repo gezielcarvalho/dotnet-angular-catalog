@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './components/public/products/home/home.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  standalone: true,
+  imports: [CommonModule, RouterModule, HomeComponent],
+  templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
-    constructor() {}
-
-  ngOnInit() {
-    //
-  }
-
-  title = 'DS Catalog';
+export class AppComponent {
+  title = 'frontend';
 }
