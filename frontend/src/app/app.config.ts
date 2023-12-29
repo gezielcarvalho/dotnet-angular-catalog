@@ -4,7 +4,7 @@ import {
   provideRouter,
   withEnabledBlockingInitialNavigation,
 } from '@angular/router';
-import { HomeComponent } from './components/public/products/home/home.component';
+import { HomeComponent } from './components/public/home/home.component';
 
 const routes: Route[] = [
   {
