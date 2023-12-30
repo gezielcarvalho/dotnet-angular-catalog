@@ -29,3 +29,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## References
 
 https://fontawesome.com/icons
+https://www.udemy.com/course/the-complete-guide-to-angular-2/
+https://dev.to/this-is-angular/angular-revisited-standalone-angular-applications-the-replacement-for-ngmodules-238m
+https://nx.dev/getting-started/tutorials/angular-standalone-tutorial

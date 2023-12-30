@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { faHome, faCube } from '@fortawesome/free-solid-svg-icons';
+import {
+    faHome,
+    faCube,
+    faKitchenSet,
+    faListCheck,
+} from '@fortawesome/free-solid-svg-icons';
 import { SidebarIconComponent } from './sidebar-icon/sidebar-icon.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
@@ -13,4 +18,6 @@ import { RouterModule } from '@angular/router';
 export class SidebarComponent {
     faHome = faHome;
     faCube = faCube;
+    faKitchenSet = faKitchenSet;
+    faListCheck = faListCheck;
 }
