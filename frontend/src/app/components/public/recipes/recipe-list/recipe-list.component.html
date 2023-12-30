@@ -8,17 +8,19 @@
         </button>
     </div>
 </div>
+<hr class="my-2" />
 <div class="flex flex-row">
     <div class="flex flex-col w-full">
         <a
+            *ngFor="let recipe of recipes"
             href="#"
-            class="flex items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-50"
+            class="flex border-2 rounded-md items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-50"
         >
             <div>
-                <h4 class="text-lg font-semibold">Recipe Name</h4>
-                <p class="text-sm text-gray-500">Description</p>
+                <h4 class="text-lg font-semibold">{{ recipe.name }}</h4>
+                <p class="text-sm text-gray-500">{{ recipe.description }}</p>
             </div>
-            <img src="" class="h-12" alt="Recipe Image" />
+            <img [src]="recipe.imagePath" class="h-12" alt="Recipe Image" />
         </a>
 
         <app-recipe-item />
