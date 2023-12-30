@@ -1,1 +1,52 @@
-<h1>Recipe Detail Component</h1>
+<div class="flex flex-row">
+    <div class="flex flex-col w-full">
+        <img src="" alt="" />
+    </div>
+</div>
+<div class="flex flex-row">
+    <div class="flex flex-col w-full">
+        <h1>Recipe Name</h1>
+    </div>
+</div>
+<div class="flex flex-row">
+    <div class="flex flex-col">
+        <button
+            class="flex flex-row items-center py-2 px-3 focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm me-2 mb-2"
+            mat-button
+            [matMenuTriggerFor]="menu"
+        >
+            Manage Recipe
+            <svg
+                class="w-2.5 h-2.5 ms-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+            >
+                <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 4 4 4-4"
+                />
+            </svg>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Add Ingredients to Shopping List</button>
+            <button mat-menu-item>Edit Recipe</button>
+            <button mat-menu-item>Delete Recipe</button>
+        </mat-menu>
+    </div>
+</div>
+<div class="flex flex-row">
+    <div class="flex flex-col w-full">
+        <h1>Recipe Description</h1>
+    </div>
+</div>
+<div class="flex flex-row">
+    <div class="flex flex-col w-full">
+        <h1>Ingredients</h1>
+    </div>
+</div>
