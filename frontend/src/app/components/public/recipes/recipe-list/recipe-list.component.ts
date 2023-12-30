@@ -8,6 +8,7 @@ import { RecipeItemComponent } from './recipe-item/recipe-item.component';
     templateUrl: './recipe-list.component.html',
 })
 export class RecipeListComponent implements OnInit {
+    recipes = [];
     constructor() {}
     ngOnInit() {
         // TODO
