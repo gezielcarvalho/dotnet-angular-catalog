@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
-import { Recipe } from '../recipe.model';
+import { Recipe } from '../../../../shared/models/recipe.model';
 import { CommonModule } from '@angular/common';
 
 @Component({

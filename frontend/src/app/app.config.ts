@@ -4,8 +4,9 @@ import {
     provideRouter,
     withEnabledBlockingInitialNavigation,
 } from '@angular/router';
-import { HomeComponent } from './components/public/home/home.component';
+
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { HomeComponent } from './public/screens/home/home.component';
 
 const routes: Route[] = [
     {
@@ -16,14 +17,14 @@ const routes: Route[] = [
     {
         path: 'products',
         loadComponent: () =>
-            import('./components/public/products/products.component').then(
+            import('./public/screens/products/products.component').then(
                 m => m.ProductsComponent,
             ),
     },
     {
         path: 'recipes',
         loadComponent: () =>
-            import('./components/public/recipes/recipes.component').then(
+            import('./public/screens/recipes/recipes.component').then(
                 m => m.RecipesComponent,
             ),
     },
@@ -31,10 +32,13 @@ const routes: Route[] = [
         path: 'shopping-list',
         loadComponent: () =>
             import(
-                './components/public/recipes/shopping-list/shopping-list.component'
+                './public/screens/recipes/shopping-list/shopping-list.component'
             ).then(m => m.ShoppingListComponent),
     },
 ];
 export const appConfig: ApplicationConfig = {
-    providers: [provideRouter(routes, withEnabledBlockingInitialNavigation()), provideAnimations()],
+    providers: [
+        provideRouter(routes, withEnabledBlockingInitialNavigation()),
+        provideAnimations(),
+    ],
 };

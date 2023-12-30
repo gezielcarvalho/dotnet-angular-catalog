@@ -8,6 +8,7 @@ import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
     templateUrl: './shopping-list.component.html',
 })
 export class ShoppingListComponent implements OnInit {
+    ingredients = [];
     constructor() {}
     ngOnInit() {
         // TODO

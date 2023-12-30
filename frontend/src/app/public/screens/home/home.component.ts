@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipesComponent } from '../recipes/recipes.component';
 import { ShoppingListComponent } from '../recipes/shopping-list/shopping-list.component';
-import { ToolbarComponent } from '../shared/toolbar/toolbar.component';
+import { ToolbarComponent } from 'src/app/shared/components/toolbar/toolbar.component';
 
 @Component({
     standalone: true,
