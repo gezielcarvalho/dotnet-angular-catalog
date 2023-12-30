@@ -1,1 +1,26 @@
-<app-recipe-item />
+<div class="flex flex-row">
+    <div class="flex flex-col w-full">
+        <button
+            type="button"
+            class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        >
+            New Recipe
+        </button>
+    </div>
+</div>
+<div class="flex flex-row">
+    <div class="flex flex-col w-full">
+        <a
+            href="#"
+            class="flex items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-50"
+        >
+            <div>
+                <h4 class="text-lg font-semibold">Recipe Name</h4>
+                <p class="text-sm text-gray-500">Description</p>
+            </div>
+            <img src="" class="h-12" alt="Recipe Image" />
+        </a>
+
+        <app-recipe-item />
+    </div>
+</div>
