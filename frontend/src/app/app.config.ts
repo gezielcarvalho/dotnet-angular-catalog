@@ -5,6 +5,7 @@ import {
     withEnabledBlockingInitialNavigation,
 } from '@angular/router';
 import { HomeComponent } from './components/public/home/home.component';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 const routes: Route[] = [
     {
@@ -35,5 +36,5 @@ const routes: Route[] = [
     },
 ];
 export const appConfig: ApplicationConfig = {
-    providers: [provideRouter(routes, withEnabledBlockingInitialNavigation())],
+    providers: [provideRouter(routes, withEnabledBlockingInitialNavigation()), provideAnimations()],
 };
