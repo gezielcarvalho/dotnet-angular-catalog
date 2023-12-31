@@ -15,6 +15,13 @@ export const routes: Route[] = [
             ),
     },
     {
+        path: 'products/:id',
+        loadComponent: () =>
+            import(
+                './public/screens/products/product-details/product-details.component'
+            ).then(m => m.ProductDetailsComponent),
+    },
+    {
         path: 'recipes',
         loadComponent: () =>
             import('./public/screens/recipes/recipes.component').then(
