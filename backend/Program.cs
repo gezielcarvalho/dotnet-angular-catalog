@@ -52,6 +52,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// CORS policy
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+       .AllowAnyMethod()
+          .AllowAnyHeader());
+
 app.Run();
 
 static void ConfigureServices(IServiceCollection services)
