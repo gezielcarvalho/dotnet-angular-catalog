@@ -27,6 +27,18 @@
     .navigation-bar {
         @apply fixed pl-2 flex flex-row items-center justify-between bg-gray-900 text-white h-16 w-full px-4;
     }
+
+    .blue-button {
+        @apply focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2;
+    }
+
+    .red-button {
+        @apply focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2;
+    }
+
+    .green-button {
+        @apply focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2;
+    }
 }
 
 input.ng-invalid.ng-touched {
