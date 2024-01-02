@@ -1,10 +1,11 @@
 <a
     href="#"
     class="flex border-2 rounded-md items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-50"
+    (click)="onRecipeSelected()"
 >
     <div>
         <h4 class="text-lg font-semibold">{{ recipe?.name }}</h4>
         <p class="text-sm text-gray-500">{{ recipe?.description }}</p>
     </div>
-    <img [src]="recipe?.imagePath" class="h-12" alt="Recipe Image" />
+    <img [src]="recipe?.imagePath" class="h-12" alt="{{ recipe?.name }}" />
 </a>

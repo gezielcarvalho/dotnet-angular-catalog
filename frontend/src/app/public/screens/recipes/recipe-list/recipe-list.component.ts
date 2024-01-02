@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { Recipe } from '../../../../shared/models/recipe.model';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
     templateUrl: './recipe-list.component.html',
 })
 export class RecipeListComponent implements OnInit {
+    @Output() recipeWasSelected = new EventEmitter<Recipe>();
     recipes: Recipe[] = [
         new Recipe(
             'A Test Recipe 1',
@@ -25,5 +26,10 @@ export class RecipeListComponent implements OnInit {
     constructor() {}
     ngOnInit() {
         // TODO
+    }
+
+    onRecipeSelected(recipe: Recipe) {
+        console.log('RecipeListComponent.onRecipeSelected');
+        this.recipeWasSelected.emit(recipe);
     }
 }
