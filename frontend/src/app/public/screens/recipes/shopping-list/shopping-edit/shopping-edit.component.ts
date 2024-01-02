@@ -7,6 +7,7 @@ import {
     ViewChild,
 } from '@angular/core';
 import { Ingredient } from 'src/app/shared/models/ingredients.model';
+import { ShoppingListService } from 'src/app/shared/services/shopping-list.service';
 
 @Component({
     standalone: true,
@@ -16,18 +17,17 @@ import { Ingredient } from 'src/app/shared/models/ingredients.model';
 export class ShoppingEditComponent implements OnInit {
     @ViewChild('nameInput') nameInputRef: ElementRef | undefined;
     @ViewChild('amountInput') amountInputRef: ElementRef | undefined;
-    @Output() ingredientsAdded = new EventEmitter<Ingredient>();
-    constructor() {}
+    constructor(private service: ShoppingListService) {}
     ngOnInit() {
         // TODO
     }
 
     onAddItem(e: Event) {
         e.preventDefault();
-        const ingName = this.nameInputRef?.nativeElement.value;
-        const ingAmount = this.amountInputRef?.nativeElement.value;
+        const ingName = this.nameInputRef!.nativeElement.value;
+        const ingAmount = this.amountInputRef!.nativeElement.value;
         const newIngredient = new Ingredient(ingName, ingAmount);
-        this.ingredientsAdded.emit(newIngredient);
+        this.service.addIngredient(newIngredient);
         // clear the input fields
         this.nameInputRef!.nativeElement.value = '';
         this.amountInputRef!.nativeElement.value = '';
