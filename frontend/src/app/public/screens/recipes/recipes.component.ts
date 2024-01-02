@@ -3,6 +3,8 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { Recipe } from 'src/app/shared/models/recipe.model';
 import { CommonModule } from '@angular/common';
+import { RecipeService } from 'src/app/shared/services/recipe.service';
+
 @Component({
     standalone: true,
     imports: [RecipeListComponent, RecipeDetailComponent, CommonModule],
@@ -11,8 +13,10 @@ import { CommonModule } from '@angular/common';
 })
 export class RecipesComponent implements OnInit {
     selectedRecipe: Recipe | undefined;
-    constructor() {}
+    constructor(private service: RecipeService) {}
     ngOnInit() {
-        // TODO
+        this.service.recipeSelected.subscribe((recipe: Recipe) => {
+            this.selectedRecipe = recipe;
+        });
     }
 }
