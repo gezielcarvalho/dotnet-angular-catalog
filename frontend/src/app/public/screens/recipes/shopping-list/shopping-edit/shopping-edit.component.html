@@ -6,9 +6,11 @@
                     <label
                         for="name"
                         class="block text-sm font-medium text-gray-700"
-                        >Name</label
                     >
+                        Name
+                    </label>
                     <input
+                        #nameInput
                         type="text"
                         id="name"
                         class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
@@ -18,9 +20,11 @@
                     <label
                         for="amount"
                         class="block text-sm font-medium text-gray-700"
-                        >Amount</label
                     >
+                        Amount
+                    </label>
                     <input
+                        #amountInput
                         type="text"
                         id="amount"
                         class="mt-1 p-2 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
@@ -28,7 +32,13 @@
                 </div>
             </div>
             <div class="flex w-full p-2">
-                <button type="submit" class="green-button">Add</button>
+                <button
+                    type="submit"
+                    class="green-button"
+                    (click)="onAddItem($event)"
+                >
+                    Add
+                </button>
                 <button type="button" class="red-button">Delete</button>
                 <button type="button" class="blue-button">Clear</button>
             </div>

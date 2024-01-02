@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    EventEmitter,
+    OnInit,
+    Output,
+    ViewChild,
+} from '@angular/core';
+import { Ingredient } from 'src/app/shared/models/ingredients.model';
 
 @Component({
     standalone: true,
@@ -6,8 +14,23 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './shopping-edit.component.html',
 })
 export class ShoppingEditComponent implements OnInit {
+    @ViewChild('nameInput') nameInputRef: ElementRef | undefined;
+    @ViewChild('amountInput') amountInputRef: ElementRef | undefined;
+    @Output() ingredientsAdded = new EventEmitter<Ingredient>();
     constructor() {}
     ngOnInit() {
         // TODO
+    }
+
+    onAddItem(e: Event) {
+        e.preventDefault();
+        const ingName = this.nameInputRef?.nativeElement.value;
+        const ingAmount = this.amountInputRef?.nativeElement.value;
+        const newIngredient = new Ingredient(ingName, ingAmount);
+        this.ingredientsAdded.emit(newIngredient);
+        // clear the input fields
+        this.nameInputRef!.nativeElement.value = '';
+        this.amountInputRef!.nativeElement.value = '';
+        console.log('ShoppingEditComponent.onAddItem');
     }
 }
