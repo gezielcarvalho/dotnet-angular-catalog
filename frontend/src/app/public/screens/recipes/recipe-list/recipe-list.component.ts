@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { Recipe } from '../../../../shared/models/recipe.model';
 import { CommonModule } from '@angular/common';
+import { RecipeService } from 'src/app/shared/services/recipe.service';
 
 @Component({
     standalone: true,
@@ -11,21 +12,12 @@ import { CommonModule } from '@angular/common';
 })
 export class RecipeListComponent implements OnInit {
     @Output() recipeWasSelected = new EventEmitter<Recipe>();
-    recipes: Recipe[] = [
-        new Recipe(
-            'A Test Recipe 1',
-            'This is simply a test one',
-            'https://picsum.photos/200',
-        ),
-        new Recipe(
-            'A Test Recipe 2',
-            'This is simply a test two',
-            'https://picsum.photos/200',
-        ),
-    ];
-    constructor() {}
+    recipes: Recipe[] | undefined;
+
+    constructor(private service: RecipeService) {}
+
     ngOnInit() {
-        // TODO
+        this.recipes = this.service.getRecipes();
     }
 
     onRecipeSelected(recipe: Recipe) {
