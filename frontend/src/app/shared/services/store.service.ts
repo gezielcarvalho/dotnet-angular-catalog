@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { Product } from '../models/Product';
+import { Product } from '../models/product';
 import { Subject } from 'rxjs/internal/Subject';
-import { Filter } from '../models/Filter';
+import { Filter } from '../models/filter';
 
 @Injectable({
     providedIn: 'root',

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Product } from 'src/app/shared/models/Product';
-import { ProductService } from 'src/app/shared/services/productService';
+import { Product } from 'src/app/shared/models/product';
+import { ProductService } from 'src/app/shared/services/product.service';
 import { StoreService } from 'src/app/shared/services/store.service';
 import { RouterModule } from '@angular/router';
 import { FilterComponent } from 'src/app/shared/components/filter/filter.component';
