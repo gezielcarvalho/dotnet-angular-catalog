@@ -35,4 +35,8 @@ export const routes: Route[] = [
                 './public/screens/recipes/shopping-list/shopping-list.component'
             ).then(m => m.ShoppingListComponent),
     },
+    {
+        path: '**',
+        redirectTo: '/',
+    },
 ];
