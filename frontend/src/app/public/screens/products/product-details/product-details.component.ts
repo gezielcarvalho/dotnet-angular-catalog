@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Product } from 'src/app/shared/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 
@@ -8,14 +9,9 @@ import { ProductService } from 'src/app/shared/services/product.service';
     selector: 'app-product-details',
     templateUrl: './product-details.component.html',
 })
-export class ProductDetailsComponent {
-    product: Product = {
-        id: 0,
-        name: '',
-        price: 0,
-        category: '',
-        description: '',
-    };
+export class ProductDetailsComponent implements OnInit, OnDestroy {
+    product: Product = {} as Product;
+    paramsSubscription: Subscription = {} as Subscription;
 
     constructor(
         private route: ActivatedRoute,
@@ -23,16 +19,19 @@ export class ProductDetailsComponent {
     ) {}
 
     ngOnInit(): void {
-        this.getProduct();
+        this.paramsSubscription = this.route.params.subscribe(params => {
+            const id = Number(params['id']);
+            if (!isNaN(id)) {
+                this.itemService
+                    .getProduct(id)
+                    .subscribe(product => (this.product = product));
+            }
+        });
     }
 
-    getProduct(): void {
-        const id = Number(this.route.snapshot.paramMap.get('id'));
-        if (!isNaN(id)) {
-            this.itemService
-                .getProduct(id)
-                .subscribe(product => (this.product = product));
-        }
+    ngOnDestroy(): void {
+        this.paramsSubscription.unsubscribe();
     }
+
     addToCart(): void {}
 }

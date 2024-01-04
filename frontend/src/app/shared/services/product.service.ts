@@ -11,7 +11,7 @@ const mock_products: ProductPayload = {
             name: 'Adidas Stan Smith',
             price: 90.0,
             category: 'Shoes',
-            description: '',
+            description: 'Adidas Tennis Shoes',
         },
         {
             id: 2,

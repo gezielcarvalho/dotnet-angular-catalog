@@ -4,8 +4,7 @@
 <select
     [(ngModel)]="storeService.pageSize"
     (change)="onPageSizeChange()"
-    id="pageSize"
->
+    id="pageSize">
     <option value="3">3</option>
     <option value="5">5</option>
     <option value="10">10</option>
@@ -17,9 +16,9 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">
-                    <a routerLink="/products/{{ product.id }}">{{
-                        product.name
-                    }}</a>
+                    <a href="#" [routerLink]="['/products', product.id]">
+                        {{ product.name }}
+                    </a>
                 </h5>
                 <p class="card-subtitle mb-2 text-muted">
                     ${{ product.price }}
