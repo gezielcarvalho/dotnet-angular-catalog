@@ -36,6 +36,13 @@ export const routes: Route[] = [
             ).then(m => m.ShoppingListComponent),
     },
     {
+        path: 'reserved',
+        loadComponent: () =>
+            import('./public/screens/reserved/reserved.component').then(
+                m => m.ReservedComponent,
+            ),
+    },
+    {
         path: '**',
         redirectTo: '/',
     },
