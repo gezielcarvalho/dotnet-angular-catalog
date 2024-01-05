@@ -32,3 +32,5 @@ https://fontawesome.com/icons
 https://www.udemy.com/course/the-complete-guide-to-angular-2/
 https://dev.to/this-is-angular/angular-revisited-standalone-angular-applications-the-replacement-for-ngmodules-238m
 https://nx.dev/getting-started/tutorials/angular-standalone-tutorial
+
+https://stackoverflow.com/questions/75564717/angulars-canactivate-interface-is-deprecated-how-to-replace-it

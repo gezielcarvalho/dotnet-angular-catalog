@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
 import { HomeComponent } from './public/screens/home/home.component';
+import { AuthGuard } from './shared/services/auth-guard.service';
 
 export const routes: Route[] = [
     {
@@ -37,6 +38,7 @@ export const routes: Route[] = [
     },
     {
         path: 'reserved',
+        canActivate: [AuthGuard],
         loadComponent: () =>
             import('./public/screens/reserved/reserved.component').then(
                 m => m.ReservedComponent,
