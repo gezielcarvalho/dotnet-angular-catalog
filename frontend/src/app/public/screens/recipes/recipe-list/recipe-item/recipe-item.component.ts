@@ -1,22 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Recipe } from 'src/app/shared/models/recipe.model';
-import { RecipeService } from 'src/app/shared/services/recipe.service';
 
 @Component({
     standalone: true,
+    imports: [RouterModule],
     selector: 'app-recipe-item',
     templateUrl: './recipe-item.component.html',
 })
 export class RecipeItemComponent implements OnInit {
     @Input() recipe: Recipe | undefined;
 
-    constructor(private service: RecipeService) {}
+    constructor() {}
     ngOnInit() {
         // TODO
-    }
-
-    onRecipeSelected() {
-        console.log('RecipeItemComponent.onRecipeSelected');
-        this.service.recipeSelected.emit(this.recipe);
     }
 }

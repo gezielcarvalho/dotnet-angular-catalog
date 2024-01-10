@@ -10,12 +10,14 @@ export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>();
     private recipes: Recipe[] = [
         new Recipe(
+            1,
             'A Test Recipe 1',
             'This is simply a test one',
             'https://picsum.photos/id/237/200/300',
             [new Ingredient('Meat', 1), new Ingredient('French Fries', 20)],
         ),
         new Recipe(
+            2,
             'A Test Recipe 2',
             'This is simply a test two',
             'https://picsum.photos/id/236/200/300',
@@ -26,6 +28,10 @@ export class RecipeService {
 
     getRecipes() {
         return this.recipes.slice();
+    }
+
+    getRecipe(index: number) {
+        return this.recipes.find(recipe => recipe.id === index);
     }
 
     addIngredientsToShoppingList(ingredients?: Ingredient[]) {

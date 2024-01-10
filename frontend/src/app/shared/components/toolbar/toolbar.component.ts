@@ -1,22 +1,17 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { RouterLink } from '@angular/router';
 
 @Component({
     standalone: true,
-    imports: [MatMenuModule],
+    imports: [MatMenuModule, RouterLink],
     selector: 'app-toolbar',
     templateUrl: './toolbar.component.html',
 })
 export class ToolbarComponent implements OnInit {
-    @Output() featureSelected = new EventEmitter<string>();
     constructor() {}
 
     ngOnInit() {
         // TODO
-    }
-
-    onSelect(feature: string) {
-        console.log({ feature });
-        this.featureSelected.emit(feature);
     }
 }

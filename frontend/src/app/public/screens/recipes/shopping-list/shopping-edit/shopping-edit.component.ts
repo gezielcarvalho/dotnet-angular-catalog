@@ -17,6 +17,7 @@ import { ShoppingListService } from 'src/app/shared/services/shopping-list.servi
 export class ShoppingEditComponent implements OnInit {
     @ViewChild('nameInput') nameInputRef: ElementRef | undefined;
     @ViewChild('amountInput') amountInputRef: ElementRef | undefined;
+    changesSaved = false;
     constructor(private service: ShoppingListService) {}
     ngOnInit() {
         // TODO

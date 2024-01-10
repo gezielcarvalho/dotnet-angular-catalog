@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatMenuModule } from '@angular/material/menu';
+import { ActivatedRoute } from '@angular/router';
 import { Recipe } from 'src/app/shared/models/recipe.model';
 import { RecipeService } from 'src/app/shared/services/recipe.service';
 
@@ -13,9 +14,14 @@ import { RecipeService } from 'src/app/shared/services/recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
     @Input() recipe: Recipe | undefined;
-    constructor(private service: RecipeService) {}
+    constructor(
+        private service: RecipeService,
+        private route: ActivatedRoute,
+    ) {}
     ngOnInit() {
-        // TODO
+        this.route.params.subscribe(params => {
+            this.recipe = this.service.getRecipe(+params['id']);
+        });
     }
 
     onAddToShoppingList() {

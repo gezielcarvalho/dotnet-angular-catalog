@@ -28,6 +28,22 @@ export const routes: Route[] = [
             import('./public/screens/recipes/recipes.component').then(
                 m => m.RecipesComponent,
             ),
+        children: [
+            {
+                path: '',
+                loadComponent: () =>
+                    import(
+                        './public/screens/recipes/recipe-start/recipe-start.component'
+                    ).then(m => m.RecipeStartComponent),
+            },
+            {
+                path: ':id',
+                loadComponent: () =>
+                    import(
+                        './public/screens/recipes/recipe-detail/recipe-detail.component'
+                    ).then(m => m.RecipeDetailComponent),
+            },
+        ],
     },
     {
         path: 'shopping-list',
