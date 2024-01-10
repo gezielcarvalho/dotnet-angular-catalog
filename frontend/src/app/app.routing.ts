@@ -37,11 +37,27 @@ export const routes: Route[] = [
                     ).then(m => m.RecipeStartComponent),
             },
             {
+                path: 'new',
+                // canActivate: [AuthGuard],
+                loadComponent: () =>
+                    import(
+                        './public/screens/recipes/recipe-edit/recipe-edit.component'
+                    ).then(m => m.RecipeEditComponent),
+            },
+            {
                 path: ':id',
                 loadComponent: () =>
                     import(
                         './public/screens/recipes/recipe-detail/recipe-detail.component'
                     ).then(m => m.RecipeDetailComponent),
+            },
+            {
+                path: ':id/edit',
+                // canActivate: [AuthGuard],
+                loadComponent: () =>
+                    import(
+                        './public/screens/recipes/recipe-edit/recipe-edit.component'
+                    ).then(m => m.RecipeEditComponent),
             },
         ],
     },
