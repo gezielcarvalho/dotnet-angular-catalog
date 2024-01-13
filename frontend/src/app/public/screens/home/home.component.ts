@@ -16,11 +16,6 @@ import { CommonModule } from '@angular/common';
     templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-    loadedFeature = 'recipes';
-    onNavigate(feature: string) {
-        console.log({ feature });
-        this.loadedFeature = feature;
-    }
     ngOnInit(): void {
         //throw new Error("Method not implemented.");
     }
