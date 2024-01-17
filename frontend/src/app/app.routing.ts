@@ -23,6 +23,13 @@ export const routes: Route[] = [
             ).then(m => m.ProductDetailsComponent),
     },
     {
+        path: 'td-form',
+        loadComponent: () =>
+            import(
+                './public/screens/template-form/template-form.component'
+            ).then(m => m.TemplateFormComponent),
+    },
+    {
         path: 'recipes',
         loadComponent: () =>
             import('./public/screens/recipes/recipes.component').then(

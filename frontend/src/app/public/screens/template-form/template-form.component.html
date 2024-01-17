@@ -1,1 +1,41 @@
-<h1>Template Form Component</h1>
+<form class="max-w-md mt-8" name="formExample">
+    <div id="user-data">
+        <div class="mb-4">
+            <label for="username" class="block text-gray-700">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                class="form-input mt-1 block w-full border-2"
+                ngModel />
+        </div>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded" type="button">
+            Suggest an Username
+        </button>
+        <div class="mt-4">
+            <label for="email" class="block text-gray-700">Mail</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                ngModel
+                class="form-input mt-1 block w-full border-2" />
+        </div>
+    </div>
+    <div class="mt-4">
+        <label for="secret" class="block text-gray-700">Secret Questions</label>
+        <select
+            id="secret"
+            name="secret"
+            ngModel
+            class="form-select mt-1 block w-full border-2">
+            <option value="pet">Your first Pet?</option>
+            <option value="teacher">Your first teacher?</option>
+        </select>
+    </div>
+    <button
+        class="bg-green-500 text-white px-4 py-2 rounded mt-4"
+        type="submit">
+        Submit
+    </button>
+</form>
