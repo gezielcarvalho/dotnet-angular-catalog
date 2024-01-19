@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
@@ -8,11 +8,12 @@ import { FormsModule, NgForm } from '@angular/forms';
     templateUrl: './template-form.component.html',
 })
 export class TemplateFormComponent {
+    @ViewChild('formExample') formExample!: NgForm;
     suggestUserName() {
         const suggestedName = 'Superuser';
     }
 
-    onSubmit(form: NgForm) {
-        console.log(form.form.value);
+    onSubmit() {
+        console.log(this.formExample.value);
     }
 }
