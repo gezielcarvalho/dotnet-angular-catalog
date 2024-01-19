@@ -1,4 +1,7 @@
-<form class="max-w-md mt-8" name="formExample">
+<form
+    class="max-w-md mt-8"
+    #formExample="ngForm"
+    (ngSubmit)="onSubmit(formExample)">
     <div id="user-data">
         <div class="mb-4">
             <label for="username" class="block text-gray-700">Username</label>
