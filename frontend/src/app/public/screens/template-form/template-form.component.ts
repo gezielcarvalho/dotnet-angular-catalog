@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
@@ -6,6 +6,7 @@ import { FormsModule, NgForm } from '@angular/forms';
     imports: [FormsModule],
     selector: 'app-template-form',
     templateUrl: './template-form.component.html',
+    styleUrls: ['./template-form.component.css'],
 })
 export class TemplateFormComponent {
     @ViewChild('formExample') formExample!: NgForm;
@@ -14,6 +15,6 @@ export class TemplateFormComponent {
     }
 
     onSubmit() {
-        console.log(this.formExample.value);
+        console.log(this.formExample);
     }
 }

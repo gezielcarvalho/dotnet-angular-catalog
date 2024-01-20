@@ -6,6 +6,7 @@
                 type="text"
                 id="username"
                 name="username"
+                required
                 class="form-input mt-1 block w-full border-2"
                 ngModel />
         </div>
@@ -18,6 +19,8 @@
                 type="email"
                 id="email"
                 name="email"
+                email
+                required
                 ngModel
                 class="form-input mt-1 block w-full border-2" />
         </div>
@@ -27,6 +30,7 @@
         <select
             id="secret"
             name="secret"
+            required
             ngModel
             class="form-select mt-1 block w-full border-2">
             <option value="pet">Your first Pet?</option>
@@ -34,7 +38,12 @@
         </select>
     </div>
     <button
-        class="bg-green-500 text-white px-4 py-2 rounded mt-4"
+        [class]="
+            formExample.valid
+                ? 'bg-green-500 text-white px-4 py-2 rounded mt-4'
+                : 'bg-gray-500 text-white px-4 py-2 rounded mt-4'
+        "
+        [disabled]="!formExample.valid"
         type="submit">
         Submit
     </button>
