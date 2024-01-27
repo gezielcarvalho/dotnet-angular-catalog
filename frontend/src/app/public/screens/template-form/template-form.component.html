@@ -8,7 +8,13 @@
                 name="username"
                 required
                 class="form-input mt-1 block w-full border-2"
-                ngModel />
+                ngModel
+                #username="ngModel" />
+            <span
+                *ngIf="username.touched && !username.valid"
+                class="text-red-600 p-2">
+                Please insert a username
+            </span>
         </div>
         <button class="bg-blue-500 text-white px-4 py-2 rounded" type="button">
             Suggest an Username
@@ -22,7 +28,13 @@
                 email
                 required
                 ngModel
+                #email="ngModel"
                 class="form-input mt-1 block w-full border-2" />
+            <span
+                *ngIf="email.touched && !email.valid"
+                class="text-red-600 p-2">
+                Please insert a valid email
+            </span>
         </div>
     </div>
     <div class="mt-4">
