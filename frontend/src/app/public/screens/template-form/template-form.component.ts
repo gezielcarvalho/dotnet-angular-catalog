@@ -11,6 +11,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class TemplateFormComponent {
     @ViewChild('formExample') formExample!: NgForm;
+    defaultQuestion = 'pet';
     suggestUserName() {
         const suggestedName = 'Superuser';
     }

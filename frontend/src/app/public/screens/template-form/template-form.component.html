@@ -7,7 +7,7 @@
                 id="username"
                 name="username"
                 required
-                class="form-input mt-1 block w-full border-2"
+                class="form-input mt-1 block w-full border-2 rounded p-2"
                 ngModel
                 #username="ngModel" />
             <span
@@ -29,7 +29,7 @@
                 required
                 ngModel
                 #email="ngModel"
-                class="form-input mt-1 block w-full border-2" />
+                class="form-input mt-1 block w-full border-2 rounded p-2" />
             <span
                 *ngIf="email.touched && !email.valid"
                 class="text-red-600 p-2">
@@ -42,12 +42,28 @@
         <select
             id="secret"
             name="secret"
+            [ngModel]="defaultQuestion"
             required
             ngModel
-            class="form-select mt-1 block w-full border-2">
+            class="form-select mt-1 block w-full border-2 rounded p-2">
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
         </select>
+    </div>
+    <div class="mt-4">
+        <label for="answer" class="block text-gray-700">Answer</label>
+        <textarea
+            id="answer"
+            name="answer"
+            required
+            ngModel
+            #answer="ngModel"
+            rows="3"
+            class="form-textarea mt-1 block w-full border-2 rounded p-2"></textarea>
+        <span *ngIf="answer.touched && !answer.valid" class="text-red-600 p-2">
+            Please insert an answer
+        </span>
+        <p *ngIf="answer.valid">Your reply: {{ answer.value }}</p>
     </div>
     <button
         [class]="
