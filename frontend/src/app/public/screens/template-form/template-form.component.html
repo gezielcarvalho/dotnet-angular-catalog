@@ -71,6 +71,16 @@
             Please insert an answer
         </span>
         <p *ngIf="answer.valid">Your reply: {{ answer.value }}</p>
+        <div *ngFor="let item of genders">
+            <input
+                type="radio"
+                name="gender"
+                id="gender"
+                [ngModel]="defaultGender"
+                [value]="item"
+                required />
+            {{ item }}
+        </div>
     </div>
     <button
         [class]="
