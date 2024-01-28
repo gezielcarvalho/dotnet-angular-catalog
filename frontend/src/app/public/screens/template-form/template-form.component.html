@@ -1,5 +1,9 @@
 <form class="max-w-md mt-8" #formExample="ngForm" (ngSubmit)="onSubmit()">
-    <div id="user-data">
+    <div
+        id="user-data"
+        ngModelGroup="userData"
+        #userData="ngModelGroup"
+        class="p-2 rounded">
         <div class="mb-4">
             <label for="username" class="block text-gray-700">Username</label>
             <input
@@ -37,6 +41,9 @@
             </span>
         </div>
     </div>
+    <p *ngIf="userData.touched && !userData.valid" class="text-red-600 p-2">
+        User Data is not valid
+    </p>
     <div class="mt-4">
         <label for="secret" class="block text-gray-700">Secret Questions</label>
         <select
