@@ -6,6 +6,7 @@ import {
     faLock,
     faKitchenSet,
     faTicket,
+    faChalkboard,
 } from '@fortawesome/free-solid-svg-icons';
 import { SidebarIconComponent } from './sidebar-icon/sidebar-icon.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -24,4 +25,5 @@ export class SidebarComponent {
     faLock = faLock;
     faKitchenSet = faKitchenSet;
     faTicket = faTicket;
+    faChalkboard = faChalkboard;
 }

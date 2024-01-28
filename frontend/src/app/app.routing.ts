@@ -30,6 +30,13 @@ export const routes: Route[] = [
             ).then(m => m.TemplateFormComponent),
     },
     {
+        path: 'reactive-form',
+        loadComponent: () =>
+            import(
+                './public/screens/reactive-form/reactive-form.component'
+            ).then(m => m.ReactiveFormComponent),
+    },
+    {
         path: 'recipes',
         loadComponent: () =>
             import('./public/screens/recipes/recipes.component').then(

@@ -1,3 +1,4 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
     FormControl,
@@ -8,7 +9,7 @@ import {
 
 @Component({
     standalone: true,
-    imports: [ReactiveFormsModule],
+    imports: [NgFor, ReactiveFormsModule],
     selector: 'app-reactive-form',
     templateUrl: './reactive-form.component.html',
 })
