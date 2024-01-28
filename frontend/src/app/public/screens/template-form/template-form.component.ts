@@ -16,9 +16,15 @@ export class TemplateFormComponent {
     genders = ['male', 'female', 'other'];
     suggestUserName() {
         const suggestedName = 'Superuser';
+        this.formExample.form.patchValue({
+            userData: {
+                username: suggestedName,
+            },
+        });
     }
 
     onSubmit() {
         console.log(this.formExample);
+        this.formExample.reset();
     }
 }
