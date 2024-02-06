@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
     FormControl,
@@ -9,11 +9,14 @@ import {
 
 @Component({
     standalone: true,
-    imports: [NgFor, ReactiveFormsModule],
+    imports: [NgFor, NgIf, ReactiveFormsModule],
     selector: 'app-reactive-form',
     templateUrl: './reactive-form.component.html',
 })
 export class ReactiveFormComponent implements OnInit {
+    onSubmit() {
+        console.log(this.signupForm.value);
+    }
     genders = ['male', 'female', 'other'];
     signupForm!: FormGroup;
     ngOnInit(): void {
